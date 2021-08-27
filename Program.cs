@@ -28,9 +28,7 @@ namespace NumberGuesser
                 {
                     Console.WriteLine("invalid response. exiting the game...");
                     return;
-
-                }
-
+                };
 
                 // Computer prompts for a response
                 // Console.WriteLine($"Is your number LOWER, HIGHER, or CORRECT?");
@@ -49,6 +47,8 @@ namespace NumberGuesser
                 }
             }
 
+            BragWhenCorrect();
+
         }
 
         static void ShowGreeting()
@@ -60,15 +60,17 @@ namespace NumberGuesser
 
         static string PromptGuessCorrectness(int guess)
         {
+            Console.WriteLine($"Your number is {guess}");
+
             // Computer prompt for number
-            Console.WriteLine($"Is your number LOWER, HIGHER, or CORRECT?");
+            Console.WriteLine($"Is your number HIGHER, LOWER, or CORRECT?");
             return Console.ReadLine().ToLower();
 
             // userResponse = Console.ReadLine();
             // userResponse = userResponse.ToLower();
         }
 
-        static bool ValidateResponse(string userResponse);
+        static bool ValidateResponse(string userResponse)
         {
             if (userResponse == "correct" || userResponse == "higher" || userResponse == "lower")
             {
@@ -80,14 +82,14 @@ namespace NumberGuesser
             }
         }
 
-    static void BragWhenCorrect()
-    {
-        Console.WriteLine("MWAHAHA I am UNDEFEATED!");
-    }
+        static void BragWhenCorrect()
+        {
+            Console.WriteLine("MWAHAHA I am UNDEFEATED!");
+        }
 
-    // ShowGreeting 
-    // ComputeNewLowIfTooLow
-    // ComputeNewHighIfTooHigh
-    // BragWhenCorrect
-}
+        // ShowGreeting 
+        // ComputeNewLowIfTooLow
+        // ComputeNewHighIfTooHigh
+        // BragWhenCorrect
+    }
 }
